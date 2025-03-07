@@ -1,0 +1,5 @@
+This file was added to fix the Vercel deployment issue with the contact page.
+
+The issue was related to the useState hook being used in a server component. The fix involved:
+1. Making sure the contact page has "use client" directive
+2. Ensuring all components that use React hooks are properly marked as client components
