@@ -1,5 +1,23 @@
-This file was added to fix the Vercel deployment issue with the contact page.
+# Vercel Build Fix
 
-The issue was related to the useState hook being used in a server component. The fix involved:
-1. Making sure the contact page has "use client" directive
-2. Ensuring all components that use React hooks are properly marked as client components
+## Issues Fixed
+
+1. Invalid configuration in next.config.js
+   - Removed unrecognized `isrMemoryCacheSize` option in the experimental section
+   - This was causing the warning: "Invalid next.config.js options detected: Unrecognized key(s) in object: 'isrMemoryCacheSize'"
+
+2. React hooks usage in the contact page
+   - Fixed the contact page component by properly declaring it as a client component with arrow function syntax
+   - Added missing default export at the end of the file
+   - This resolves the error: "TypeError: Cannot read properties of null (reading 'useState')"
+
+## Explanation
+
+The main issue was that the contact page was using React hooks during server-side rendering, which isn't supported. 
+Even though the page had the "use client" directive at the top, the way the component was declared and exported
+needed to be updated to ensure it's properly recognized as a client component.
+
+These changes ensure that:
+1. All React hooks are only used in client components
+2. The Next.js configuration only uses recognized options
+3. The contact page will now render properly in production builds

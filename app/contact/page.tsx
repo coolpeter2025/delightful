@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
-export default function ContactPage() {
+// Make sure this component is explicitly marked as a client component
+const ContactPage = () => {
   return (
     <>
       {/* Hero Section */}
@@ -218,4 +219,6 @@ export default function ContactPage() {
       </section>
     </>
   );
-}
+};
+
+export default ContactPage;

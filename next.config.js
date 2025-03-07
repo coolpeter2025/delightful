@@ -16,8 +16,7 @@ const nextConfig = {
   experimental: {
     disableOptimizedLoading: true,
     optimizeCss: false,
-    // Disable static generation completely
-    isrMemoryCacheSize: 0,
+    // Moved server components config to avoid conflicts
     serverComponentsExternalPackages: ['react', 'react-dom']
   },
   // Skip type checking during build
